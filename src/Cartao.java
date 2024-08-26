@@ -44,6 +44,7 @@ public class Cartao {
         }
         if (valorDebito <= 0){
             System.out.println("O valor deve ser positivo");
+            return;
         }
         saldo -= valorDebito;
         System.out.println("Compra realizada. Novo saldo de: " + saldo);
