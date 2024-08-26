@@ -7,7 +7,11 @@ public class Cartao {
     private double valorFatura;
     private int parcelasFatura;
 
+    // Construtor padrão
+    public Cartao(){
+    }
 
+    //Construtor com parâmetros
     public Cartao(String tipoCartao, String numeroCartao, double valorLimite, double valorFatura, int parcelasFatura){
         this.tipoCartao = tipoCartao;
         this.numeroCartao = numeroCartao;
@@ -20,6 +24,7 @@ public class Cartao {
 
     Cartao meuCartao = new Cartao("Crédito", "1234-5678-0000-0000", 5000.0, 9000, 0);
 
+    //Método para pagamento com cartão de crédito
 
     public void pagarComCredito(double valorPagamento){
         if (valorPagamento <= 0){
@@ -34,8 +39,10 @@ public class Cartao {
         valorFatura += valorPagamento;
         System.out.println("Compra de" + valorPagamento + "no cartão de crédito autorizada! \nO valor atual da fatura é de R$ " + valorFatura);
     }
-
     //Exemplo de pagamento com cartão de crédito: meuCartao.pagarComCrédito(650.99);
+
+
+    //Método para pagamento com cartão de débito
 
     public void pagarComDebito(double valorDebito){
         if (valorDebito > saldo){
@@ -49,10 +56,10 @@ public class Cartao {
         saldo -= valorDebito;
         System.out.println("Compra realizada. Novo saldo de: " + saldo);
     }
-
-
     //Exemplo de pagamento com cartão de débito: meuCartao.pagarComDebito(120.00);
 
+
+    //Método para parcelamento de fatura do cartão
 
     public void parcelarFatura(int numParcelas){
         if (numParcelas <=1){
@@ -67,5 +74,4 @@ public class Cartao {
         }
     }
     //Exemplo de Parcelamento de Fatura: meuCartao.parcelarFatura(3);
-
 }
