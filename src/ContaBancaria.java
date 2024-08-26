@@ -2,7 +2,7 @@ public class ContaBancaria {
 
 	private String numeroConta;
 	private Cliente titular;
-	private Double saldo;
+	private double saldo;
 
 	// construtor com parametros
 	public ContaBancaria(String numeroConta, Cliente titular, Double saldo) {
@@ -14,14 +14,24 @@ public class ContaBancaria {
 	// metodo para depositar dinheiro
 	public void depositar(Double valor) {
 		this.saldo += valor;
-		System.out.println("Depositando" + valor + "na conta de " + titular.nome);
+		System.out.println("Depositando" + valor + "na conta de " + titular.getNome());
+	}
+
+	// metodo pegar saldo
+	public double getSaldo(){
+		return this.saldo;
+	}
+
+	// metodo setar saldo
+	public void setSaldo(double saldo){
+		this.saldo = saldo;
 	}
 
 	// metodo para sacar dinheiro
 	public void sacar(Double valor) {
 		if (valor <= this.saldo) {
 			this.saldo -= valor;
-			System.out.println("Sacando " + valor + " da conta de " + titular.nome);
+			System.out.println("Sacando " + valor + " da conta de " + titular.getNome());
 			return;
 		}
 		System.out.println("Saldo insuficiente!");
