@@ -25,6 +25,11 @@ public class Cliente {
 		return nomeCliente;
 	}
 
+	// metodo checagem da senha
+	public boolean checkPassword(String password) {
+		return this.password.equals(password);
+	}
+
 	// metodo para retornar as contas
 	public List<ContaBancaria> getContas() {
 		return contas;
