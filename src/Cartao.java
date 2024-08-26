@@ -1,4 +1,3 @@
-
 public class Cartao {
 
     private String tipoCartao;
@@ -6,23 +5,24 @@ public class Cartao {
     private double valorLimite;
     private double valorFatura;
     private int parcelasFatura;
+    private ContaBancaria conta;
 
     // Construtor padrão
     public Cartao(){
     }
 
     //Construtor com parâmetros
-    public Cartao(String tipoCartao, String numeroCartao, double valorLimite, double valorFatura, int parcelasFatura){
+    public Cartao(String tipoCartao, String numeroCartao, ContaBancaria conta, double valorLimite, double valorFatura, int parcelasFatura){
         this.tipoCartao = tipoCartao;
         this.numeroCartao = numeroCartao;
         this.valorLimite = valorLimite;
         this.valorFatura = valorFatura;
         this.parcelasFatura = parcelasFatura;
+        this.conta = conta;
     }
 
-    //Criando um objeto "cartão" para uso
-
-    Cartao meuCartao = new Cartao("Crédito", "1234-5678-0000-0000", 5000.0, 9000, 0);
+    //Criando um objeto "cartão para uso
+    // Cartao cartao = new Cartao("Crédito", "1234-5678-0000-0000", Objeto contaBancaria, 5000.0, 9000.0, 0)
 
     //Método para pagamento com cartão de crédito
 
@@ -45,7 +45,7 @@ public class Cartao {
     //Método para pagamento com cartão de débito
 
     public void pagarComDebito(double valorDebito){
-        if (valorDebito > saldo){
+        if (valorDebito > conta.getSaldo()){
             System.out.println("Saldo insuficiente");
             return;
         }
@@ -53,8 +53,8 @@ public class Cartao {
             System.out.println("O valor deve ser positivo");
             return;
         }
-        saldo -= valorDebito;
-        System.out.println("Compra realizada. Novo saldo de: " + saldo);
+        conta.setSaldo( conta.getSaldo() - valorDebito );
+        System.out.println("Compra realizada. Novo saldo de: " + this.conta.getSaldo());
     }
     //Exemplo de pagamento com cartão de débito: meuCartao.pagarComDebito(120.00);
 
@@ -74,4 +74,3 @@ public class Cartao {
         }
     }
     //Exemplo de Parcelamento de Fatura: meuCartao.parcelarFatura(3);
-}
