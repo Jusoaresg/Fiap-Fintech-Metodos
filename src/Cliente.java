@@ -30,6 +30,11 @@ public class Cliente {
 		return this.password.equals(password);
 	}
 
+	// metodo retornar cpf
+	public String getCpf() {
+		return this.cpf;
+	}
+
 	// metodo para retornar as contas
 	public List<ContaBancaria> getContas() {
 		return contas;

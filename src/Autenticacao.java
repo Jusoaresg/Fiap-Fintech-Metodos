@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.HashMap;
 
 public class Autenticacao {
 
@@ -14,7 +15,7 @@ public class Autenticacao {
 			return null;
 		}
 
-		clientesRegistrados.put(cliente.cpf, cliente);
+		clientesRegistrados.put(cliente.getCpf(), cliente);
 
 		System.out.println("Cliente criado com sucesso");
 		return cliente;
@@ -30,7 +31,7 @@ public class Autenticacao {
 			return null;
 		}
 
-		if (cliente.password != password) {
+		if (!cliente.checkPassword(password)) {
 			System.out.println("Senha errada, tente novamente");
 			return null;
 		}
