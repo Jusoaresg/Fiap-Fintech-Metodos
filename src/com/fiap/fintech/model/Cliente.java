@@ -1,3 +1,5 @@
+package com.fiap.fintech.model;
+
 import java.util.List;
 
 public class Cliente {

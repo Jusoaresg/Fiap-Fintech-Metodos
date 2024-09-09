@@ -1,5 +1,7 @@
-import java.util.Map;
+package com.fiap.fintech.model;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class Autenticacao {
 
